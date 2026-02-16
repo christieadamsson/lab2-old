@@ -1,3 +1,5 @@
+package Lab1;
+
 import Lab1.Car;
 
 import javax.crypto.Mac;
