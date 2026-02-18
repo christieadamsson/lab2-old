@@ -1,0 +1,12 @@
+Refaktoriseringsplan
+
+1. Inför en VehicleFactory klass
+- Flytta skapandet av bilar från CarController till en separat fabriksklass
+- Skapar då instanser av Saab, Volvo etc som är subklasser till vehicle
+- Tar bort usage dependency från de separata bilarna genom att skapandet sker via VehicleFactory
+
+2. Separera logik från CarController
+- Flytta krock och lastningslogik till en separat klass.
+
+Parallellt utförande:
+Det går att utföra parallellt eftersom de inte överlappar, dvs krocklogiken och vehicleFactory är inte beroende av varandra.
