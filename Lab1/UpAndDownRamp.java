@@ -3,15 +3,6 @@ package Lab1;
 public class UpAndDownRamp implements IRamp {
     private boolean rampDown;
 
-
-    public void lowerRamp() {
-            rampDown = true;
-    }
-
-    public void raiseRamp(){
-           rampDown = false;
-    }
-
     public boolean isRampDown() {
         return rampDown;
     }
@@ -19,5 +10,15 @@ public class UpAndDownRamp implements IRamp {
     @Override
     public boolean isSafeForDriving() {
         return !rampDown;
+    }
+
+    @Override
+    public void lowerRamp() {
+        rampDown = true;
+    }
+
+    @Override
+    public void raiseRamp() {
+        rampDown = false;
     }
 }

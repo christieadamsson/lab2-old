@@ -25,6 +25,18 @@ public class Scania extends Truck {
             }
     }
 
+    public void raiseRamp(){
+        if (getCurrentSpeed() == 0){
+            ramp.raiseRamp();
+        }
+    }
+
+    public void lowerRamp(){
+        if (getCurrentSpeed() == 0){
+            ramp.lowerRamp();
+        }
+    }
+
     @Override
     protected double speedFactor() {
         return 0.01*getEnginePower();

@@ -36,4 +36,13 @@ public class AngleRamp implements IRamp{
         return rampAngle == 0;
     }
 
+    @Override
+    public void raiseRamp(){
+        rampAngle = 70;
+    }
+
+    @Override
+    public void lowerRamp(){
+        rampAngle = 0;
+    }
 }
