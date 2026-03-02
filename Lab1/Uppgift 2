@@ -1,0 +1,34 @@
+I början var koden som en enda röra där alla gjorde allas jobb.
+
+Kontrollern var en gjorde för mycket:
+Istället för att bara vara en länk, så var det kontrollern som hade all logik.
+
+Vyn visste för mycket:
+Vyn visste var verkstaden stod.
+Egentligen ska fönstret bara "rita det den ser",
+den ska inte behöva veta varför något står där det står.
+
+De var för beroende av varandra.
+
+Sammanfattningsvis:
+Modellen  borde ha varit Smartare.
+Vyn borde ha varit Dummare.
+Kontrollern borde ha varit Tunnare.
+
+2. Designförbättringar
+
+Vi skapade en Model:
+Nu ligger listan på bilar och alla regler för krockar och verkstäder i klassen Model.
+Nu vet vi precis var vi ska leta om vi vill ändra hur en krock fungerar.
+
+Kontrollern har blivit "Tunnare":
+Den tar nu bara emot ett klick från en knapp och skickar vidare det till modellen.
+
+VehicleFactor:
+Istället för att skriva new Volvo240() mitt i koden, ber vi fabriken om en bil.
+Det gör att vi enkelt kan lägga till nya bilmodeller i framtiden utan att behöva röra resten av systemet.
+
+
+Förbättringsområden:
+Vyn och Kontrollern är fortfarande lite för beroende av varandra.
+Kontrollern måste fortfarande säga till fönstret att rita om.

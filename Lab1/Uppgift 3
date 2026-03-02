@@ -1,0 +1,37 @@
+1. Factory Method
+Ja, vi har infört en VehicleFactory.
+Det tog bort beroendet mellan CarController och de specifika bilarna.
+Innan var kontrollern tvungen att veta exakt hur man bygger en Volvo eller en Saab.
+Nu ber den bara fabriken om "en bil", vilket gör koden mycket mer flexibel om vi vill lägga till fler bilmärken senare.
+
+** Fråga 5 **:
+ropar på VehicleFactory.createRandomVehicle(). Använder sig av designpattern Factory Method.
+på så vis kunde vi lägga till en metod utan att behöva ändra i de befintliga.
+
+2. Observer
+Det har vi ännu inte implementerat.
+
+Förbättring:
+Skulle kunna införa ett interface (Refresh).
+Det löser problemet med att Model och View pratar för mycket med varandra.
+Modellen behöver inte längre veta att det finns en skärm som heter DrawPanel.
+
+3. State
+Nej, inte direkt.
+
+Förbättring:
+Bilarna skulle kunna ha olika "lägen".
+En lastbil kan vara i läget "Parkerad" (då kan flaket höjas) eller "Kör" (då är flaket låst).
+Det skulle ta bort massor av krångliga if-satser i koden.
+
+4. Composite
+Vi använder det redan litegrann i Model.
+När vi trycker på gasen eller bromsen går koden igenom en lista med alla bilar.
+
+Förbättring:
+Vi kan göra koden ännu snyggare genom att skapa en egen klass som heter VehicleGroup.
+ stället för att ha alla loopar direkt i Model, flyttar vi in dem i den här nya klassen.
+
+Detta löser problemet med redundancy, och vi slipper skriva samma for-loop om och om igen för varje sak bilarna ska göra.
+Det blir även mer modulärt. Vi kan skapa fler grupper som kan styras tillsammans utan att behöva ändra på resten.
+Model blir enklare att förstå och kortare.

@@ -14,8 +14,9 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-    ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
     Map<String, BufferedImage> images = new HashMap<>();
+    ArrayList<Garage> garages = new ArrayList<>();
 
     BufferedImage volvoWorkshopImage;
     Point volvoWorkshopPoint = new Point(300,300);
@@ -36,7 +37,7 @@ public class DrawPanel extends JPanel{
             images.put("Volvo240", ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
             images.put("Saab95", ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
             images.put("Scania", ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
-            volvoWorkshopImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg"));
+            images.put("VolvoGarage", ImageIO.read(DrawPanel.class.getResourceAsStream("pics/VolvoBrand.jpg")));
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -47,12 +48,15 @@ public class DrawPanel extends JPanel{
         this.vehicles = vehicles;
     }
 
+    public void setGarages(ArrayList<Garage> garages){
+        this.garages = garages;
+    }
+
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoWorkshopImage, volvoWorkshopPoint.x, volvoWorkshopPoint.y, null);
 
         for (Vehicle vehicle : vehicles) {
             BufferedImage image = images.get(vehicle.getModelName());
@@ -60,10 +64,15 @@ public class DrawPanel extends JPanel{
             if (image != null) {
                 g.drawImage((Image) image, (int) vehicle.getX(), (int) vehicle.getY(), null); // see javadoc for more info on the parameters
             }
-        }
-    }
 
-    public Point getVolvoWorkshopPoint() {
-        return volvoWorkshopPoint;
+        }
+        for (Garage garage : garages) {
+            BufferedImage image = images.get(garage.getGarageName());
+
+            if (image != null) {
+                g.drawImage((Image) image, (int) garage.getX(), (int) garage.getY(), null); // see javadoc for more info on the parameters
+            }
+        }
+
     }
 }
