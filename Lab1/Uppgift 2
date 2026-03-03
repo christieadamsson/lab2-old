@@ -30,5 +30,6 @@ Det gör att vi enkelt kan lägga till nya bilmodeller i framtiden utan att beh�
 
 
 Förbättringsområden:
-Vyn och Kontrollern är fortfarande lite för beroende av varandra.
-Kontrollern måste fortfarande säga till fönstret att rita om.
+Vill skapa en main som "application" för att tunna ut CarController ännu mer.
+Sen vill vi göra ännu mindre beroende mellan CarView och CarController,
+genom att implementera ett Refresh interface.

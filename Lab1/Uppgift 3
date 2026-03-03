@@ -13,14 +13,14 @@ Det har vi ännu inte implementerat.
 
 Förbättring:
 Skulle kunna införa ett interface (Refresh).
-Det löser problemet med att Model och View pratar för mycket med varandra.
+Det löser problemet med att Model och View är för beroende. (stod innan frame.repaint()).
 Modellen behöver inte längre veta att det finns en skärm som heter DrawPanel.
 
 3. State
 Nej, inte direkt.
 
 Förbättring:
-Bilarna skulle kunna ha olika "lägen".
+Bilarna skulle kunna ha olika "lägen" som är implementerat i olika interfaces.
 En lastbil kan vara i läget "Parkerad" (då kan flaket höjas) eller "Kör" (då är flaket låst).
 Det skulle ta bort massor av krångliga if-satser i koden.
 
